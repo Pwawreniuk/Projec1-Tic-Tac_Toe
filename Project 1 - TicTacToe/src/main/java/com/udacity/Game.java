@@ -177,7 +177,7 @@ public class Game {
                     if(grid[i][j] == '-'){
                         tieCheck = false;}
 
-            if(tieCheck){
+            if(tieCheck && result == "None"){
                 result = "Tie";
             }
 
