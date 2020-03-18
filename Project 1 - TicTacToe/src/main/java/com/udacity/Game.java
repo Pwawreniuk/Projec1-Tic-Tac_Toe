@@ -150,24 +150,36 @@ public class Game {
      */
     public String checkGameWinner(char [][]grid){
         String result = "None";
+        Boolean tieCheck = true;
+
+        // Checking if player X won
             for(int i=0; i<3; i++) {
                 if ((grid[i][0] == 'x' && grid[i][1] == 'x' && grid[i][2] == 'x') ||
                         (grid[0][i] == 'x' && grid[1][i] == 'x' && grid[2][i] == 'x'))
-                    result = 'X' + " wins!";
+                    result = 'X' + " wins";
             }
             if ( (grid[0][0] == 'x' && grid[1][1] == 'x' && grid[2][2] == 'x') ||
                     (grid[0][2] == 'x' && grid[1][1] == 'x' && grid[2][0] == 'x') )
-                    result = 'X' + " wins!";
-
+                    result = 'X' + " wins";
+        // Checking if player O won
             for(int i=0; i<3; i++) {
                 if ((grid[i][0] == 'o' && grid[i][1] == 'o' && grid[i][2] == 'o') ||
                         (grid[0][i] == 'o' && grid[1][i] == 'o' && grid[2][i] == 'o'))
-                    result = 'O' + " wins!";
+                    result = 'O' + " wins";
             }
             if ( (grid[0][0] == 'o' && grid[1][1] == 'o' && grid[2][2] == 'o') ||
                     (grid[0][2] == 'o' && grid[1][1] == 'o' && grid[2][0] == 'o') )
-                result = 'O' + " wins!";;
+                result = 'O' + " wins";;
 
+        // Checking if it's a tie
+            for(int i=0; i<3; i++)
+                for(int j=0; j<3; j++)
+                    if(grid[i][j] == '-'){
+                        tieCheck = false;}
+
+            if(tieCheck){
+                result = "Tie";
+            }
 
         return result;
     }
